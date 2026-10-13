@@ -1,0 +1,5 @@
+@import "@fontsource-variable/noto-sans-sc";
+
+:root {
+  --vdl-font-family: "Noto Sans SC Variable", "Noto Sans SC", sans-serif;
+}

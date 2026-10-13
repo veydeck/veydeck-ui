@@ -1,0 +1,88 @@
+/**
+ * Framework-independent scrollbar material.
+ * Native scrollbar pseudo-elements cannot use the SVG refraction renderer, so
+ * they share the Liquid Glass tint, rim and state semantics with a CSS fallback.
+ */
+:root {
+  --vdl-scrollbar-size: 10px;
+  --vdl-scrollbar-inset: 2px;
+  --vdl-scrollbar-track: rgb(13 30 55 / 0.035);
+  --vdl-scrollbar-thumb: rgb(108 122 149 / 0.3);
+  --vdl-scrollbar-thumb-hover: rgb(86 105 139 / 0.46);
+  --vdl-scrollbar-thumb-active: rgb(65 87 126 / 0.58);
+  --vdl-scrollbar-highlight: rgb(255 255 255 / 0.52);
+  --vdl-scrollbar-inner-edge: rgb(31 42 68 / 0.16);
+}
+
+html[data-theme="dark"] {
+  --vdl-scrollbar-track: rgb(148 163 184 / 0.055);
+  --vdl-scrollbar-thumb: rgb(148 163 184 / 0.32);
+  --vdl-scrollbar-thumb-hover: rgb(174 190 208 / 0.46);
+  --vdl-scrollbar-thumb-active: rgb(200 216 232 / 0.58);
+  --vdl-scrollbar-highlight: rgb(255 255 255 / 0.34);
+  --vdl-scrollbar-inner-edge: rgb(5 10 18 / 0.34);
+}
+
+/* The host mirrors this attribute into suite iframe roots. */
+[data-glass="disabled"] {
+  --vdl-scrollbar-track: var(--vdl-bg-muted);
+  --vdl-scrollbar-thumb: var(--vdl-text-subtle);
+  --vdl-scrollbar-thumb-hover: var(--vdl-text-muted);
+  --vdl-scrollbar-thumb-active: var(--vdl-text-secondary);
+  --vdl-scrollbar-highlight: transparent;
+  --vdl-scrollbar-inner-edge: transparent;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--vdl-scrollbar-thumb) var(--vdl-scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: var(--vdl-scrollbar-size);
+  height: var(--vdl-scrollbar-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--vdl-scrollbar-track);
+}
+
+*::-webkit-scrollbar-thumb {
+  border: var(--vdl-scrollbar-inset) solid transparent;
+  border-radius: var(--vdl-radius-pill);
+  background:
+    linear-gradient(145deg, var(--vdl-scrollbar-highlight), transparent 46%)
+      padding-box,
+    var(--vdl-scrollbar-thumb) padding-box;
+  box-shadow: inset 0 -1px 0 var(--vdl-scrollbar-inner-edge);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(145deg, var(--vdl-scrollbar-highlight), transparent 46%)
+      padding-box,
+    var(--vdl-scrollbar-thumb-hover) padding-box;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background:
+    linear-gradient(145deg, var(--vdl-scrollbar-highlight), transparent 46%)
+      padding-box,
+    var(--vdl-scrollbar-thumb-active) padding-box;
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+@media (forced-colors: active) {
+  * {
+    scrollbar-color: auto;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-color: ButtonText;
+    background: ButtonFace;
+    box-shadow: none;
+  }
+}

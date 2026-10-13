@@ -1,0 +1,23 @@
+.vl-breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.vl-breadcrumb-item:last-child .vl-breadcrumb-separator {
+  display: none;
+}
+
+.vl-breadcrumb-label {
+  color: var(--vdl-text-secondary);
+  transition: color 0.2s;
+}
+
+.vl-breadcrumb-label:hover {
+  color: var(--vdl-primary);
+}
+
+.vl-breadcrumb-separator {
+  margin: 0 var(--vdl-space-2);
+  color: var(--vdl-text-muted);
+  user-select: none;
+}

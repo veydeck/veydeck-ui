@@ -1,0 +1,48 @@
+{
+  "name": "@veydeck/vue",
+  "version": "0.1.0-alpha.1",
+  "description": "Veydeck Vue 3 UI Component Library",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/style.css",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": [
+    "dist/style.css"
+  ],
+  "dependencies": {
+    "@veydeck/icons": "workspace:*",
+    "@veydeck/tokens": "workspace:*"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "scripts": {
+    "build": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veydeck/veydeck-ui.git",
+    "directory": "packages/vue"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7"
+  }
+}

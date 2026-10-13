@@ -1,0 +1,281 @@
+/* Public material values come from @veydeck/tokens; --vl-* are per-instance outputs. */
+.vl-glass {
+  --vl-glass-tint: var(--vdl-glass-surface-tint);
+  --vl-glass-filter: none;
+  --vl-glass-material-opacity: var(--vl-glass-opacity);
+}
+.vl-glass.vl-glass.vl-glass {
+  --vl-glass-opacity: 100%;
+  --vl-glass-highlight: 0;
+  background-color: color-mix(
+    in srgb,
+    var(--vl-glass-tint) var(--vl-glass-material-opacity),
+    transparent
+  );
+  background-image: linear-gradient(
+    var(--vdl-glass-sheen-angle),
+    rgb(var(--vdl-glass-highlight-color) / var(--vl-glass-highlight)),
+    transparent var(--vdl-glass-sheen-stop),
+    rgb(
+      var(--vdl-glass-highlight-color) /
+        calc(var(--vl-glass-highlight) * var(--vdl-glass-sheen-tail-opacity))
+    )
+  );
+  -webkit-backdrop-filter: var(--vl-glass-filter, none);
+  backdrop-filter: var(--vl-glass-filter, none);
+}
+.vl-glass.vl-button--primary {
+  --vl-glass-tint: var(--vdl-primary);
+}
+.vl-glass.vl-button--danger {
+  --vl-glass-tint: var(--vdl-danger);
+}
+.vl-glass.vl-button--warning {
+  --vl-glass-tint: var(--vdl-warning);
+}
+.vl-glass.vl-button--info {
+  --vl-glass-tint: var(--vdl-bg-muted);
+}
+.vl-glass.vl-glass.vl-button--secondary,
+.vl-glass.vl-glass.vl-button--info {
+  --vl-glass-tint: var(--vdl-glass-control-tint);
+  color: var(--vdl-text-primary);
+}
+.vl-glass.vl-glass.vl-button--danger {
+  color: var(--vdl-glass-text-on-danger);
+}
+.vl-glass.vl-glass.vl-button--warning {
+  color: var(--vdl-glass-text-on-warning);
+}
+.vl-glass.vl-glass.vl-button--warning[data-glass-mode="solid"] {
+  color: var(--vdl-glass-text-on-danger);
+}
+.vl-glass .vl-input::placeholder,
+.vl-glass.vl-textarea::placeholder {
+  color: var(--vdl-text-secondary);
+  opacity: 1;
+}
+.vl-checkbox.is-active .vl-glass,
+.vl-checkbox.is-indeterminate .vl-glass {
+  --vl-glass-tint: var(--vdl-primary);
+}
+.vl-glass.vl-pagination-btn.active {
+  --vl-glass-tint: var(--vdl-bg-active);
+}
+.vl-glass.vl-tabs-item:not([data-glass-mode="solid"]) {
+  --vl-glass-tint: var(--vdl-glass-tab-tint);
+}
+.vl-glass.vl-tooltip-content {
+  color: var(--vdl-text-primary);
+}
+.vl-glass.vl-switch-handle {
+  --vl-glass-tint: var(--vdl-glass-control-tint);
+}
+/* The off-state thumb must remain distinct from its neutral track. */
+.vl-switch:not(.is-active) .vl-glass.vl-switch-handle {
+  --vl-glass-tint: var(--vdl-text-primary);
+  --vl-glass-material-opacity: max(
+    var(--vdl-glass-semantic-opacity-min),
+    var(--vl-glass-opacity)
+  );
+}
+.vl-glass.vl-tabs-item {
+  border-radius: var(--vdl-radius-md) var(--vdl-radius-md) 0 0;
+}
+/* Small surfaces need a visible curved rim; keep checkbox marks on their own pseudo-elements. */
+.vl-glass.vl-glass.vl-switch-handle:not([data-glass-mode="solid"]),
+.vl-glass.vl-glass.vl-checkbox-inner:not([data-glass-mode="solid"]) {
+  --vl-glass-material-opacity: max(
+    var(--vdl-glass-compact-opacity-min),
+    var(--vl-glass-opacity)
+  );
+  background-image:
+    radial-gradient(
+      ellipse at 25% 0%,
+      rgb(
+        var(--vdl-glass-highlight-color) / calc(var(--vl-glass-highlight) * 2)
+      ),
+      transparent 65%
+    ),
+    linear-gradient(
+      165deg,
+      transparent 45%,
+      rgb(
+        var(--vdl-glass-highlight-color) / calc(var(--vl-glass-highlight) * 0.6)
+      )
+    );
+  box-shadow:
+    inset 0 1px 1px
+      rgb(
+        var(--vdl-glass-highlight-color) / calc(var(--vl-glass-highlight) * 2)
+      ),
+    inset 0 -1px 1px
+      color-mix(in srgb, var(--vdl-text-primary) 25%, transparent),
+    0 1px 2px color-mix(in srgb, var(--vdl-text-primary) 25%, transparent);
+}
+.vl-glass.vl-glass.vl-checkbox-inner:not([data-glass-mode="solid"]) {
+  border-radius: var(--vdl-glass-compact-radius);
+}
+.vl-checkbox-original:focus-visible + .vl-glass.vl-checkbox-inner {
+  outline: 2px solid var(--vdl-primary);
+  outline-offset: 2px;
+}
+/* Explicit semantic colors stay readable even when the consumer requests clear glass. */
+.vl-glass.vl-button--primary,
+.vl-glass.vl-button--danger,
+.vl-checkbox.is-active .vl-glass,
+.vl-checkbox.is-indeterminate .vl-glass {
+  --vl-glass-material-opacity: max(
+    var(--vdl-glass-semantic-opacity-min),
+    var(--vl-glass-opacity)
+  );
+}
+.vl-glass.vl-card,
+.vl-glass.vl-table-container,
+.vl-glass.vl-descriptions-grid {
+  position: relative;
+}
+.vl-glass.vl-card::after,
+.vl-glass.vl-alert::after,
+.vl-glass.vl-toast-item::after,
+.vl-glass.vl-dialog-glass-layer::after,
+.vl-glass.vl-modal-card::after,
+.vl-glass.vl-drawer-panel::after,
+.vl-glass.vl-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 1px 0
+      rgb(var(--vdl-glass-highlight-color) / var(--vl-glass-highlight)),
+    inset 0 -1px 0
+      rgb(
+        var(--vdl-glass-highlight-color) /
+          calc(var(--vl-glass-highlight) * var(--vdl-glass-rim-bottom-opacity))
+      );
+}
+.vl-glass.vl-modal-card {
+  position: relative;
+}
+.vl-glass.vl-glass.vl-alert {
+  position: relative;
+  --vl-alert-accent: var(--vdl-info);
+  --vl-glass-tint: color-mix(
+    in srgb,
+    var(--vl-alert-accent) 35%,
+    var(--vdl-bg-base)
+  );
+  color: var(--vdl-text-primary);
+  border-color: color-mix(
+    in srgb,
+    var(--vl-alert-accent) 35%,
+    var(--vdl-border-default)
+  );
+}
+.vl-glass.vl-alert.is-success {
+  --vl-alert-accent: var(--vdl-success);
+}
+.vl-glass.vl-alert.is-warning {
+  --vl-alert-accent: var(--vdl-warning);
+}
+.vl-glass.vl-alert.is-error {
+  --vl-alert-accent: var(--vdl-danger);
+}
+.vl-glass.vl-alert::before {
+  content: "";
+  position: absolute;
+  inset: 8px auto 8px 0;
+  width: 3px;
+  border-radius: var(--vdl-radius-pill);
+  background: var(--vl-alert-accent);
+  pointer-events: none;
+}
+.vl-glass.vl-glass.vl-alert:not([data-glass-mode="solid"]),
+.vl-glass.vl-glass.vl-toast-item:not([data-glass-mode="solid"]) {
+  border-radius: var(--vdl-radius-lg);
+  box-shadow:
+    inset 0 -1px 2px var(--vdl-glass-toast-inner-edge),
+    var(--vdl-shadow-panel);
+  background-image:
+    linear-gradient(
+      165deg,
+      transparent 35%,
+      var(--vdl-glass-toast-shade) 75%,
+      transparent
+    ),
+    radial-gradient(
+      ellipse at 15% 0%,
+      rgb(
+        var(--vdl-glass-highlight-color) / calc(var(--vl-glass-highlight) * 1.5)
+      ),
+      transparent 65%
+    ),
+    linear-gradient(
+      var(--vdl-glass-sheen-angle),
+      transparent 45%,
+      rgb(
+        var(--vdl-glass-highlight-color) / calc(var(--vl-glass-highlight) * 0.4)
+      )
+    );
+}
+.vl-glass.vl-toast-item .vl-toast-message,
+.vl-glass.vl-toast-item .vl-toast-close {
+  color: var(--vdl-text-primary);
+}
+.vl-glass.vl-toast-item .vl-toast-icon {
+  color: var(--vdl-text-primary);
+}
+.vl-glass > .vl-card-header,
+.vl-dialog-card > .vl-glass.vl-dialog-glass-layer ~ .vl-dialog-header,
+.vl-dialog-card > .vl-glass.vl-dialog-glass-layer ~ .vl-dialog-footer,
+.vl-glass > .vl-drawer-header {
+  background-color: color-mix(
+    in srgb,
+    var(--vdl-bg-muted) var(--vdl-glass-header-opacity),
+    transparent
+  );
+}
+.vl-glass > .vl-card-content,
+.vl-dialog-card > .vl-glass.vl-dialog-glass-layer ~ .vl-dialog-body,
+.vl-glass > .vl-drawer-body {
+  background-color: color-mix(
+    in srgb,
+    var(--vdl-bg-base) var(--vdl-glass-content-opacity),
+    transparent
+  );
+}
+.vl-glass.vl-glass > .vl-modal-header,
+.vl-glass.vl-glass > .vl-modal-body,
+.vl-glass.vl-glass > .vl-modal-footer {
+  background-color: transparent;
+}
+.vl-glass.vl-table-container tbody,
+.vl-glass.vl-descriptions-grid .vl-descriptions-content {
+  background-color: var(--vdl-bg-base);
+}
+.vl-glass.vl-button:focus-visible {
+  outline: 2px solid var(--vdl-primary);
+  outline-offset: 2px;
+}
+.vl-glass.vl-button:not(:disabled):active {
+  transform: scale(var(--vdl-glass-press-scale));
+}
+@media (prefers-reduced-motion: reduce) {
+  .vl-glass.vl-glass.vl-glass {
+    animation: none;
+    transition: none;
+  }
+  .vl-glass.vl-button:not(:disabled):active {
+    transform: none;
+  }
+}
+@media (prefers-reduced-transparency: reduce), (forced-colors: active) {
+  .vl-glass.vl-glass.vl-glass {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-image: none;
+    background-color: var(--vl-glass-tint, var(--vdl-bg-base));
+  }
+}

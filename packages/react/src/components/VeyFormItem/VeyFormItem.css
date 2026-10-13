@@ -1,0 +1,36 @@
+.vl-form-item {
+  margin-bottom: var(--vdl-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--vdl-space-2);
+}
+
+.vl-form-item-label {
+  font-size: var(--vdl-font-body-sm);
+  font-weight: 600;
+  color: var(--vdl-text-secondary);
+  line-height: 1.4;
+  user-select: none;
+}
+
+.vl-form-item-required {
+  color: var(--vdl-danger);
+  margin-right: 4px;
+}
+
+.vl-form-item-content {
+  position: relative;
+  width: 100%;
+}
+
+.vl-form-item-hint {
+  margin-top: var(--vdl-space-1);
+  font-size: var(--vdl-font-caption);
+  color: var(--vdl-text-muted);
+  line-height: 1.4;
+}
+.vl-form-item-error {
+  margin-top: var(--vdl-space-1);
+  color: var(--vdl-danger);
+  font-size: var(--vdl-font-caption);
+}

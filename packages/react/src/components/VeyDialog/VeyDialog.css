@@ -1,0 +1,98 @@
+.vl-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--vdl-bg-backdrop);
+  backdrop-filter: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--vdl-z-index-modal);
+}
+
+.vl-dialog-card {
+  position: relative;
+  background-color: transparent;
+  border-radius: var(--vdl-radius-lg);
+  border: 1px solid var(--vdl-border-strong);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 85%;
+  animation: vl-dialog-pop 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.vl-dialog-glass-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background-color: var(--vdl-bg-panel);
+  pointer-events: none;
+}
+
+.vl-dialog-header {
+  position: relative;
+  z-index: 1;
+  padding: var(--vdl-space-4) var(--vdl-space-4);
+  background-color: var(--vdl-bg-muted);
+  border-bottom: 1px solid var(--vdl-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.vl-dialog-title {
+  font-size: var(--vdl-font-subtitle);
+  font-weight: 700;
+  color: var(--vdl-text-primary);
+  user-select: none;
+}
+
+.vl-dialog-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--vdl-text-muted);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 var(--vdl-space-1);
+  transition: color 0.15s ease;
+}
+
+.vl-dialog-close-btn:hover {
+  color: var(--vdl-text-primary);
+}
+
+.vl-dialog-body {
+  position: relative;
+  z-index: 1;
+  padding: var(--vdl-space-4);
+  overflow-y: auto;
+  flex: 1;
+  color: var(--vdl-text-secondary);
+}
+
+.vl-dialog-footer {
+  position: relative;
+  z-index: 1;
+  padding: var(--vdl-space-4) var(--vdl-space-4);
+  background-color: var(--vdl-bg-muted);
+  border-top: 1px solid var(--vdl-border-subtle);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--vdl-space-3);
+  flex-shrink: 0;
+}
+
+@keyframes vl-dialog-pop {
+  from {
+    transform: scale(0.96) translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Veydeck UI Playground icon">
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="#162033"/>
+  <rect x="15" y="15" width="15" height="15" rx="3" fill="#e6edf7"/>
+  <rect x="34" y="15" width="15" height="15" rx="3" fill="#91a2b8"/>
+  <rect x="15" y="34" width="15" height="15" rx="3" fill="#91a2b8"/>
+  <rect x="34" y="34" width="15" height="15" rx="3" fill="#00c8ff"/>
+  <circle cx="49" cy="15" r="6" fill="#00d4b4" stroke="#162033" stroke-width="3"/>
+</svg>

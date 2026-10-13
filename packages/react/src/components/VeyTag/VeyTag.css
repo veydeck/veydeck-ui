@@ -1,0 +1,57 @@
+.vl-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 var(--vdl-space-2);
+  font-size: var(--vdl-font-caption);
+  line-height: 1;
+  border-radius: var(--vdl-radius-sm);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* --- 默认/中性样式 --- */
+.vl-tag--default.vl-tag--light {
+  background-color: var(--vdl-neutral-soft);
+  color: var(--vdl-text-secondary);
+  border-color: var(--vdl-border-subtle);
+}
+
+/* --- 成功样式 --- */
+.vl-tag--success.vl-tag--light {
+  background-color: var(--vdl-success-soft);
+  color: var(--vdl-success);
+  border-color: var(--vdl-success-soft);
+}
+
+/* --- 警告样式 --- */
+.vl-tag--warning.vl-tag--light {
+  background-color: var(--vdl-warning-soft);
+  color: var(--vdl-warning);
+  border-color: var(--vdl-warning-soft);
+}
+
+/* --- 危险样式 --- */
+.vl-tag--danger.vl-tag--light {
+  background-color: var(--vdl-danger-soft);
+  color: var(--vdl-danger);
+  border-color: var(--vdl-danger-soft);
+}
+
+/* --- 信息样式 --- */
+.vl-tag--info.vl-tag--light {
+  background-color: var(--vdl-info-soft);
+  color: var(--vdl-info);
+  border-color: var(--vdl-info-soft);
+}
+
+/* --- 品牌/主要样式 --- */
+.vl-tag--primary.vl-tag--light {
+  background-color: var(--vdl-bg-active);
+  color: var(--vdl-primary);
+  border-color: var(--vdl-border-brand);
+}
+
+/* 以后可按需扩充 plain 和 dark 风格 */

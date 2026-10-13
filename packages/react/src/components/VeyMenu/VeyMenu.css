@@ -1,0 +1,86 @@
+.vl-menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vdl-space-5);
+  font-family: var(--vdl-font-family);
+  user-select: none;
+}
+
+.vl-menu-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vdl-space-2);
+}
+
+.vl-menu-group-title {
+  padding: 0 var(--vdl-space-2);
+  font-size: var(--vdl-font-caption);
+  font-weight: 700;
+  color: var(--vdl-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.vl-menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vl-menu-item {
+  height: 38px;
+  padding: 0 var(--vdl-space-4);
+  display: flex;
+  align-items: center;
+  border-radius: var(--vdl-radius-md);
+  color: var(--vdl-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+.vl-menu-item-button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: inherit;
+  font: inherit;
+}
+.vl-menu-item-button:focus-visible {
+  outline: none;
+  box-shadow: var(--vdl-focus-ring);
+  border-radius: var(--vdl-radius-md);
+}
+
+.vl-menu-item:hover {
+  background-color: var(--vdl-bg-hover);
+  color: var(--vdl-text-primary);
+}
+
+.vl-menu-item.is-active {
+  background-color: var(--vdl-bg-active);
+  color: var(--vdl-primary);
+  font-weight: 600;
+}
+
+.vl-menu-item.is-active::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: var(--vdl-radius-pill);
+  background-color: var(--vdl-primary);
+}
+
+.vl-menu-item-label {
+  font-size: var(--vdl-font-body);
+}

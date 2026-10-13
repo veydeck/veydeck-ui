@@ -1,0 +1,57 @@
+.vl-tabs {
+  width: 100%;
+}
+
+.vl-tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--vdl-space-6);
+  border-bottom: 1px solid var(--vdl-border-subtle);
+  padding: 0 var(--vdl-space-1);
+}
+
+.vl-tabs-item {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--vdl-font-body);
+  color: var(--vdl-text-secondary);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  user-select: none;
+  padding: 0 var(--vdl-space-4);
+  border: 0;
+  background: transparent;
+}
+.vl-tabs-item:focus-visible {
+  outline: none;
+  box-shadow: var(--vdl-focus-ring);
+}
+
+.vl-tabs-item:hover:not(.is-disabled) {
+  color: var(--vdl-text-primary);
+}
+
+.vl-tabs-item.is-active {
+  color: var(--vdl-primary);
+  font-weight: 600;
+}
+
+.vl-tabs-item.is-active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--vdl-primary);
+  border-radius: var(--vdl-radius-pill) var(--vdl-radius-pill) 0 0;
+}
+
+.vl-tabs-item.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}

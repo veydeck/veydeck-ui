@@ -1,0 +1,22 @@
+{
+  "name": "playground-react",
+  "private": true,
+  "version": "0.1.0-alpha.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@veydeck/tokens": "workspace:*",
+    "@veydeck/icons": "workspace:*",
+    "@veydeck/react": "workspace:*",
+    "@fontsource-variable/noto-sans-sc": "^5.2.10",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2"
+  }
+}

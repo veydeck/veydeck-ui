@@ -1,0 +1,58 @@
+.vl-descriptions {
+  width: 100%;
+  font-family: var(--vdl-font-family);
+}
+
+.vl-descriptions-title {
+  margin-bottom: var(--vdl-space-3);
+  font-size: var(--vdl-font-subtitle);
+  font-weight: 600;
+  color: var(--vdl-text-primary);
+}
+
+.vl-descriptions-grid {
+  display: grid;
+  gap: 0;
+  width: 100%;
+}
+
+.vl-descriptions-item {
+  display: flex;
+  min-height: 40px;
+  border-bottom: 1px solid var(--vdl-border-subtle);
+}
+
+.vl-descriptions-label {
+  width: 140px;
+  padding: var(--vdl-space-2) var(--vdl-space-4);
+  background-color: var(--vdl-bg-muted);
+  color: var(--vdl-text-secondary);
+  font-size: var(--vdl-font-body-sm);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.vl-descriptions-content {
+  flex: 1;
+  padding: var(--vdl-space-2) var(--vdl-space-4);
+  color: var(--vdl-text-primary);
+  font-size: var(--vdl-font-body-sm);
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  word-break: break-all;
+}
+
+/* 边框模式 */
+.vl-descriptions.is-border {
+  border: 1px solid var(--vdl-border-default);
+  border-bottom: none;
+  border-radius: var(--vdl-radius-md);
+  overflow: hidden;
+}
+
+.vl-descriptions.is-border .vl-descriptions-label {
+  border-right: 1px solid var(--vdl-border-subtle);
+}

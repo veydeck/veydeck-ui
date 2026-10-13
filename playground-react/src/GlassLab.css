@@ -1,0 +1,109 @@
+.glass-lab {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 24px;
+  background: var(--vdl-bg-canvas);
+  color: var(--vdl-text-primary);
+  font-family: var(--vdl-font-family);
+}
+.glass-lab header {
+  margin-bottom: 24px;
+}
+.glass-lab h1 {
+  font-size: 24px;
+}
+.glass-lab a {
+  color: var(--vdl-primary);
+}
+.glass-lab-layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 24px;
+}
+.glass-lab aside {
+  background: var(--vdl-bg-base);
+  padding: 16px;
+  border-radius: 12px;
+}
+.glass-lab label {
+  display: block;
+  margin-bottom: 16px;
+}
+.glass-lab input[type="range"] {
+  width: 100%;
+  accent-color: var(--vdl-primary);
+}
+.glass-lab output {
+  float: right;
+  font-family: var(--vdl-font-mono);
+}
+.glass-lab pre {
+  white-space: pre-wrap;
+  font-size: 12px;
+}
+.glass-stage {
+  position: relative;
+  min-height: 640px;
+  overflow: auto;
+  border-radius: 20px;
+  background-color: var(--vdl-bg-panel);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 23px,
+      var(--vdl-border-strong) 23px 24px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 23px,
+      var(--vdl-border-strong) 23px 24px
+    );
+}
+.glass-background {
+  position: absolute;
+  inset: 24px;
+  font-size: clamp(24px, 4vw, 60px);
+  line-height: 2;
+  font-weight: 800;
+  color: var(--vdl-primary);
+}
+.glass-examples {
+  position: relative;
+  display: grid;
+  gap: 32px;
+  margin: 60px auto;
+  width: min(360px, 85%);
+}
+.custom-shell {
+  padding: 20px;
+  border-radius: var(--vdl-radius-lg);
+}
+.glass-examples > .vl-button {
+  height: 56px;
+  border-radius: 18px;
+}
+.foreground-probe {
+  background: var(--vdl-bg-base);
+  color: var(--vdl-text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.glass-control-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.glass-stress {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+@media (max-width: 640px) {
+  .glass-lab {
+    padding: 12px;
+  }
+  .glass-lab-layout {
+    grid-template-columns: 1fr;
+  }
+}

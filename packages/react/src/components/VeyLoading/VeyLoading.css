@@ -1,0 +1,91 @@
+.vl-loading-host {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.vl-loading-host.is-loading {
+  min-height: 120px;
+}
+
+.vl-loading-host.is-cover {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  min-height: 0;
+}
+
+.vl-loading-host.is-cover.is-loading {
+  pointer-events: auto;
+  z-index: var(--vdl-z-index-window);
+}
+
+.vl-loading-mask {
+  position: absolute;
+  inset: 0;
+  background-color: var(--vdl-bg-backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  backdrop-filter: blur(2px);
+}
+
+.vl-loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--vdl-space-3);
+}
+
+.vl-loading-spinner .vl-spinner {
+  animation: rotate 2s linear infinite;
+  width: 42px;
+  height: 42px;
+  color: var(--vdl-primary);
+}
+
+.vl-loading-spinner .vl-spinner .path {
+  stroke: currentColor;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+.vl-loading-text {
+  margin: 0;
+  font-size: var(--vdl-font-body-sm);
+  color: var(--vdl-text-primary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.vl-loading-fade-enter-active,
+.vl-loading-fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.vl-loading-fade-enter-from,
+.vl-loading-fade-leave-to {
+  opacity: 0;
+}

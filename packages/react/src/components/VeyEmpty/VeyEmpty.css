@@ -1,0 +1,26 @@
+.vl-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--vdl-space-8) var(--vdl-space-4);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.vl-empty-icon {
+  color: var(--vdl-text-muted);
+  margin-bottom: var(--vdl-space-4);
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.vl-empty-description {
+  margin: 0;
+  font-size: var(--vdl-font-body);
+  color: var(--vdl-text-muted);
+}
+
+.vl-empty-extra {
+  margin-top: var(--vdl-space-4);
+}

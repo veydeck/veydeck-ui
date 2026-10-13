@@ -1,0 +1,36 @@
+{
+  "name": "@veydeck/tokens",
+  "version": "0.1.0-alpha.1",
+  "description": "Veydeck Design Language Theme CSS Tokens",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.css",
+  "style": "./dist/index.css",
+  "exports": {
+    ".": "./dist/index.css",
+    "./index.css": "./dist/index.css",
+    "./glass.css": "./dist/glass.css",
+    "./scrollbar.css": "./dist/scrollbar.css",
+    "./glass": {
+      "types": "./dist/glass.d.ts",
+      "import": "./dist/glass.js"
+    }
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "node ../../scripts/build-tokens.mjs",
+    "type-check": "node -e \"process.exit(0)\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veydeck/veydeck-ui.git",
+    "directory": "packages/tokens"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  }
+}

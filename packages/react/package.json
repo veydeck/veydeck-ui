@@ -1,0 +1,50 @@
+{
+  "name": "@veydeck/react",
+  "version": "0.1.0-alpha.1",
+  "description": "Veydeck React 19 UI Component Library",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/style.css",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": [
+    "dist/style.css"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "type-check": "tsc --noEmit -p tsconfig.json",
+    "lint": "oxlint"
+  },
+  "dependencies": {
+    "@veydeck/icons": "workspace:*",
+    "@veydeck/tokens": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veydeck/veydeck-ui.git",
+    "directory": "packages/react"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2"
+  }
+}

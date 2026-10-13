@@ -1,0 +1,69 @@
+/** Shared Liquid Glass material values. Adding these tokens alone applies no effects. */
+:root {
+  /* Framework-independent material color and edge semantics. */
+  --vdl-glass-control-tint: var(--vdl-bg-muted);
+  --vdl-glass-surface-tint: var(--vdl-bg-base);
+  --vdl-glass-input-tint: var(--vdl-bg-input);
+  --vdl-glass-border: var(--vdl-border-default);
+  --vdl-glass-border-hover: var(--vdl-border-brand);
+  --vdl-glass-shadow: var(--vdl-shadow-panel);
+
+  --vdl-glass-control-refraction: 0.5;
+  --vdl-glass-control-blur: 0.18;
+  --vdl-glass-control-opacity: 0.3;
+  --vdl-glass-control-highlight: 0.6;
+  --vdl-glass-surface-refraction: 0.35;
+  --vdl-glass-surface-blur: 0.35;
+  --vdl-glass-surface-opacity: 0.3;
+  --vdl-glass-surface-highlight: 0.45;
+  --vdl-glass-input-refraction: 0.2;
+  --vdl-glass-input-blur: 0.2;
+  --vdl-glass-input-opacity: 0.3;
+  --vdl-glass-input-highlight: 0.3;
+
+  --vdl-glass-blur-max: 20px;
+  --vdl-glass-refraction-max: 28px;
+  --vdl-glass-rim-width: 12px;
+  --vdl-glass-saturation: 1.12;
+  --vdl-glass-highlight-scale: 0.5;
+  --vdl-glass-highlight-color: 255 255 255;
+  --vdl-glass-sheen-angle: 145deg;
+  --vdl-glass-sheen-stop: 42%;
+  --vdl-glass-sheen-tail-opacity: 0.22;
+  --vdl-glass-rim-bottom-opacity: 0.35;
+  --vdl-glass-semantic-opacity-min: 85%;
+  --vdl-glass-header-opacity: 55%;
+  --vdl-glass-content-opacity: 25%;
+  --vdl-glass-press-scale: 0.98;
+  --vdl-glass-compact-opacity-min: 65%;
+  --vdl-glass-compact-radius: 5px;
+  /* Foregrounds are separate from optical material settings. */
+  --vdl-glass-text-on-danger: #07111f;
+  --vdl-glass-text-on-warning: #1f2a44;
+  --vdl-glass-toast-shade: rgb(75 93 127 / 0.1);
+  --vdl-glass-toast-inner-edge: rgb(75 93 127 / 0.18);
+  --vdl-glass-tab-tint: color-mix(in srgb, var(--vdl-primary) 45%, transparent);
+}
+
+html[data-theme="dark"] {
+  --vdl-glass-text-on-warning: #ffffff;
+  --vdl-glass-toast-shade: transparent;
+  --vdl-glass-toast-inner-edge: transparent;
+  --vdl-glass-tab-tint: var(--vdl-bg-active);
+}
+
+/* Shared opt-out for hosts and embedded suites. */
+[data-glass="disabled"] {
+  --vdl-glass-control-refraction: 0;
+  --vdl-glass-control-blur: 0;
+  --vdl-glass-control-opacity: 1;
+  --vdl-glass-control-highlight: 0;
+  --vdl-glass-surface-refraction: 0;
+  --vdl-glass-surface-blur: 0;
+  --vdl-glass-surface-opacity: 1;
+  --vdl-glass-surface-highlight: 0;
+  --vdl-glass-input-refraction: 0;
+  --vdl-glass-input-blur: 0;
+  --vdl-glass-input-opacity: 1;
+  --vdl-glass-input-highlight: 0;
+}

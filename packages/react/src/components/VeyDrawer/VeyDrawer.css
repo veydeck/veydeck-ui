@@ -1,0 +1,73 @@
+.vl-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--vdl-bg-backdrop);
+  display: flex;
+  justify-content: flex-end;
+  z-index: var(--vdl-z-index-modal);
+}
+
+.vl-drawer-panel {
+  height: 100%;
+  background: var(--vdl-bg-panel);
+  box-shadow: var(--vdl-shadow-panel);
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--vdl-border-strong);
+  animation: vl-drawer-slide-in 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.vl-drawer-header {
+  padding: var(--vdl-space-4) var(--vdl-space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--vdl-border-subtle);
+  background: var(--vdl-bg-muted);
+}
+
+.vl-drawer-title {
+  margin: 0;
+  font-size: var(--vdl-font-subtitle);
+  font-weight: 600;
+  color: var(--vdl-text-primary);
+}
+
+.vl-drawer-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--vdl-text-muted);
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.vl-drawer-close-btn:hover {
+  color: var(--vdl-text-primary);
+}
+
+.vl-drawer-body {
+  padding: var(--vdl-space-5);
+  flex: 1;
+  overflow-y: auto;
+  color: var(--vdl-text-primary);
+}
+
+.vl-drawer-footer {
+  padding: var(--vdl-space-4) var(--vdl-space-5);
+  border-top: 1px solid var(--vdl-border-subtle);
+  background: var(--vdl-bg-muted);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--vdl-space-3);
+}
+
+@keyframes vl-drawer-slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

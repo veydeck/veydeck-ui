@@ -1,0 +1,47 @@
+.vl-card {
+  border-radius: var(--vdl-radius-lg);
+  border: 1px solid var(--vdl-border-default);
+  background-color: var(--vdl-bg-card);
+  color: var(--vdl-text-primary);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.vl-card-header {
+  padding: var(--vdl-space-4);
+  border-bottom: 1px solid var(--vdl-border-subtle);
+  background-color: var(--vdl-bg-muted);
+  flex-shrink: 0;
+}
+
+.vl-card-content {
+  padding: var(--vdl-space-4);
+  flex: 1;
+  min-height: 0;
+}
+
+.vl-card-content.is-full-height {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.vl-card.is-full-height {
+  height: 100%;
+}
+
+/* 阴影效果 */
+.is-shadow-always {
+  box-shadow: var(--vdl-shadow-panel);
+}
+
+.is-shadow-hover:hover {
+  box-shadow: var(--vdl-shadow-panel);
+  border-color: var(--vdl-border-brand);
+}
+
+.is-shadow-never {
+  box-shadow: none;
+}

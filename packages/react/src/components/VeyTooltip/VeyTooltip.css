@@ -1,0 +1,60 @@
+.vl-tooltip-wrapper {
+  display: inline-block;
+}
+
+.vl-tooltip-content {
+  z-index: var(--vdl-z-index-modal); /* 使用规范的 Z-Index */
+  position: fixed;
+  background-color: var(--vdl-bg-panel);
+  color: var(--vdl-text-primary);
+  padding: var(--vdl-space-1) var(--vdl-space-3);
+  border-radius: var(--vdl-radius-sm);
+  font-size: var(--vdl-font-caption);
+  white-space: nowrap;
+  box-shadow: var(--vdl-shadow-panel);
+  border: 1px solid var(--vdl-border-strong);
+  pointer-events: none;
+  line-height: 1.6;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.vl-tooltip-content.is-visible {
+  opacity: 1;
+}
+
+.vl-tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.vl-tooltip-arrow[data-position="top"] {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-color: var(--vdl-border-strong) transparent transparent transparent;
+}
+
+.vl-tooltip-arrow[data-position="bottom"] {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-color: transparent transparent var(--vdl-border-strong) transparent;
+}
+
+.vl-tooltip-arrow[data-position="left"] {
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border-color: transparent transparent transparent var(--vdl-border-strong);
+}
+
+.vl-tooltip-arrow[data-position="right"] {
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  border-color: transparent var(--vdl-border-strong) transparent transparent;
+}

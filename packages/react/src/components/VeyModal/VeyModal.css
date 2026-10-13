@@ -1,0 +1,102 @@
+.vl-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--vdl-bg-backdrop);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--vdl-z-index-modal);
+}
+
+.vl-modal-card {
+  background: var(--vdl-bg-panel);
+  border-radius: var(--vdl-radius-lg);
+  border: 1px solid var(--vdl-border-strong);
+  box-shadow: var(--vdl-shadow-window);
+  width: 90%;
+  max-width: 420px;
+  overflow: hidden;
+  animation: vl-modal-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.vl-modal-header {
+  padding: var(--vdl-space-4) var(--vdl-space-5);
+  background-color: var(--vdl-bg-muted);
+  border-bottom: 1px solid var(--vdl-border-subtle);
+}
+
+.vl-modal-title {
+  margin: 0;
+  font-size: var(--vdl-font-subtitle);
+  font-weight: 600;
+  color: var(--vdl-text-primary);
+}
+
+.vl-modal-body {
+  padding: var(--vdl-space-6) var(--vdl-space-5);
+  color: var(--vdl-text-secondary);
+}
+
+.vl-modal-message {
+  margin: 0;
+  line-height: 1.6;
+  font-size: var(--vdl-font-body);
+}
+
+.vl-modal-footer {
+  padding: var(--vdl-space-4) var(--vdl-space-5);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--vdl-space-3);
+  background-color: var(--vdl-bg-muted);
+  border-top: 1px solid var(--vdl-border-subtle);
+}
+
+.vl-modal-btn {
+  height: 36px;
+  min-width: 88px;
+  padding: 0 var(--vdl-space-4);
+  border-radius: var(--vdl-radius-md);
+  border: 1px solid transparent;
+  font-size: var(--vdl-font-body-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.vl-modal-btn.is-cancel {
+  background-color: transparent;
+  border-color: var(--vdl-border-default);
+  color: var(--vdl-text-secondary);
+}
+.vl-modal-btn.is-cancel:hover {
+  background-color: var(--vdl-bg-hover);
+  color: var(--vdl-text-primary);
+}
+
+.vl-modal-btn.is-primary {
+  background-color: var(--vdl-primary);
+  color: var(--vdl-text-inverse);
+}
+.vl-modal-btn.is-primary:hover {
+  background-color: var(--vdl-primary-hover);
+}
+
+.vl-modal-btn.is-danger {
+  background-color: var(--vdl-danger);
+  color: var(--vdl-text-on-danger);
+}
+.vl-modal-btn.is-danger:hover {
+  filter: brightness(1.1);
+}
+
+@keyframes vl-modal-pop {
+  from {
+    transform: scale(0.95) translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}

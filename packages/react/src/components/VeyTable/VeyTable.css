@@ -1,0 +1,142 @@
+.vl-table-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--vdl-radius-md);
+}
+
+.vl-table-wrapper {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.vl-table {
+  width: 100%;
+  min-width: max-content;
+  border-spacing: 0;
+  border-collapse: separate;
+  table-layout: auto;
+}
+
+.vl-table.is-empty {
+  height: 100%;
+}
+
+.vl-table.is-empty tbody,
+.vl-table.is-empty tbody > tr {
+  height: 100%;
+}
+
+/* 表头样式 */
+.vl-table-header-cell {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--vdl-bg-muted);
+  color: var(--vdl-text-primary);
+  font-size: var(--vdl-font-body-sm);
+  font-weight: 600;
+  padding: var(--vdl-space-3) 0;
+  border-bottom: 1px solid var(--vdl-border-default);
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* 单元格通用样式 */
+.vl-table-cell {
+  background-color: var(--vdl-bg-base);
+  color: var(--vdl-text-primary);
+  font-size: var(--vdl-font-body-sm);
+  font-weight: 500;
+  padding: var(--vdl-space-2) 0;
+  border-bottom: 1px solid var(--vdl-border-default);
+  transition: background-color 0.2s;
+}
+
+.vl-table-row.is-selected .vl-table-cell {
+  background-color: var(--vdl-bg-active);
+}
+
+.vl-cell {
+  padding: 0 var(--vdl-space-3);
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-all;
+  line-height: 23px;
+}
+
+.vl-table-selection-cell {
+  box-sizing: border-box;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.vl-table-selection-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+/* 边框模式样式 */
+.vl-table-border {
+  border: 1px solid var(--vdl-border-default);
+}
+
+.vl-table-border .vl-table-header-cell,
+.vl-table-border .vl-table-cell {
+  border-right: 1px solid var(--vdl-border-default);
+}
+
+.vl-table-cell.is-fixed-left,
+.vl-table-cell.is-fixed-right {
+  background-color: var(--vdl-bg-base);
+}
+
+.vl-table-border .vl-table-header-cell:last-child,
+.vl-table-border .vl-table-cell:last-child {
+  border-right: none;
+}
+
+/* 固定列实现 */
+.is-fixed-right {
+  position: sticky;
+  right: 0;
+  z-index: 20;
+  background-color: var(--vdl-bg-panel);
+}
+.is-fixed-left {
+  position: sticky;
+  left: 0;
+  z-index: 20;
+  background-color: var(--vdl-bg-panel);
+}
+.vl-table-header-cell.is-fixed-left {
+  z-index: 30;
+  background-color: var(--vdl-bg-muted);
+}
+
+.vl-table-header-cell.is-fixed-right {
+  z-index: 30;
+  background-color: var(--vdl-bg-muted);
+}
+
+/* 空状态样式 */
+.vl-table-empty-cell {
+  height: 100%;
+  padding: var(--vdl-space-8) 0;
+  text-align: center;
+}
+
+.vl-table-empty {
+  color: var(--vdl-text-muted);
+  font-size: var(--vdl-font-body-sm);
+}

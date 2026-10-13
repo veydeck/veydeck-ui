@@ -1,0 +1,104 @@
+.vl-action-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.vl-action-btn {
+  background-color: var(--vdl-bg-muted);
+  color: var(--vdl-text-primary);
+  padding: 0 var(--vdl-space-3);
+  height: 32px;
+  border: 1px solid var(--vdl-border-default);
+  border-radius: var(--vdl-radius-sm);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: var(--vdl-font-body-sm);
+  font-family: var(--vdl-font-family);
+  display: flex;
+  align-items: center;
+  gap: var(--vdl-space-2);
+}
+
+.vl-action-btn:hover {
+  background-color: var(--vdl-bg-hover);
+  border-color: var(--vdl-border-brand);
+}
+.vl-action-btn:focus-visible,
+.vl-dropdown-item:focus-visible {
+  outline: none;
+  box-shadow: var(--vdl-focus-ring);
+}
+
+.vl-action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.vl-dropdown {
+  position: fixed;
+  background-color: var(--vdl-bg-panel);
+  border: 1px solid var(--vdl-border-strong);
+  border-radius: var(--vdl-radius-md);
+  box-shadow: var(--vdl-shadow-panel);
+  z-index: calc(var(--vdl-z-index-modal) + 1);
+  min-width: 140px;
+  padding: var(--vdl-space-1);
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.vl-dropdown:not(.is-positioned) {
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.vl-dropdown-tooltip-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.vl-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: var(--vdl-space-2);
+  width: 100%;
+  padding: var(--vdl-space-2) var(--vdl-space-3);
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: var(--vdl-font-body-sm);
+  font-family: var(--vdl-font-family);
+  color: var(--vdl-text-secondary);
+  transition: all 0.2s;
+  border-radius: var(--vdl-radius-sm);
+}
+
+.vl-dropdown-item:hover:not(:disabled) {
+  background-color: var(--vdl-bg-hover);
+  color: var(--vdl-text-primary);
+}
+
+.vl-dropdown-item:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.vl-dropdown-icon {
+  width: 20px;
+  opacity: 0.8;
+}
+
+/* 业务语义颜色扩展 */
+.vl-dropdown-item.app-btn-start {
+  color: var(--vdl-primary);
+}
+.vl-dropdown-item.app-btn-stop {
+  color: var(--vdl-warning);
+}
+.vl-dropdown-item.app-btn-delete {
+  color: var(--vdl-danger);
+}

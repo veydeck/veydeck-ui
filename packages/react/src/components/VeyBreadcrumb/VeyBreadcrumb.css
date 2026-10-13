@@ -1,0 +1,8 @@
+.vl-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  font-size: var(--vdl-font-body-sm);
+  color: var(--vdl-text-muted);
+}

@@ -1,0 +1,55 @@
+.vl-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--vdl-space-2);
+}
+
+.vl-pagination-btn {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 var(--vdl-space-2);
+  border: 1px solid var(--vdl-border-default);
+  background-color: var(--vdl-bg-card);
+  color: var(--vdl-text-secondary);
+  cursor: pointer;
+  border-radius: var(--vdl-radius-md);
+  font-size: var(--vdl-font-body-sm);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vl-pagination-ellipsis {
+  min-width: 32px;
+  text-align: center;
+  color: var(--vdl-text-muted);
+}
+.vl-pagination-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--vdl-focus-ring);
+}
+
+.vl-pagination-btn:hover:not(:disabled) {
+  background-color: var(--vdl-bg-hover);
+  border-color: var(--vdl-border-brand);
+  color: var(--vdl-text-primary);
+}
+
+.vl-pagination-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.vl-pagination-btn.active {
+  background-color: var(--vdl-primary);
+  color: var(--vdl-text-inverse);
+  border-color: var(--vdl-primary);
+  font-weight: 600;
+}
+
+.vl-pagination-btn.ellipsis {
+  border: none;
+  background-color: transparent;
+  cursor: default;
+}
