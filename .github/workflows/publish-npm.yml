@@ -212,7 +212,6 @@ jobs:
       - name: Publish package
         env:
           NPM_TAG: ${{ steps.metadata.outputs.npm_tag }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         shell: bash
         run: |
           npm publish "${{ steps.pack.outputs.file }}" --tag "$NPM_TAG" --access public --provenance --registry=https://registry.npmjs.org
