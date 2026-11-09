@@ -626,6 +626,13 @@ function toggleTheme() {
               <VeyTooltip text="这里是右侧的提示内容" position="right">
                 <VeyButton size="small">右侧提示</VeyButton>
               </VeyTooltip>
+              <VeyTooltip
+                data-ui="qa-tooltip-follow-cursor"
+                text="提示会跟随鼠标移动"
+                follow-cursor
+              >
+                <VeyButton size="small">跟随鼠标</VeyButton>
+              </VeyTooltip>
             </div>
           </div>
 

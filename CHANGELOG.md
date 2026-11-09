@@ -4,6 +4,11 @@
 
 ## [Unreleased]
 
+### Added
+
+- 为 Vue 与 React 的 `VeyTooltip` 新增可选的 `followCursor` 模式，支持气泡跟随鼠标位置，保留方向设置、显示延迟和视口边缘翻转；默认关闭。
+- 补充 Tooltip 鼠标跟随模式的文档、双端 Playground 示例及单元和浏览器回归测试。
+
 ## [0.1.0-alpha.1] - 2026-10-13
 
 ### Added

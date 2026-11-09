@@ -1,8 +1,13 @@
-# 版本日志
+# Changelog
 
 格式遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本号遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 
 ## [Unreleased]
+
+### Added
+
+- `VeyTooltip` 新增 `followCursor` 属性（默认 `false`），启用后以鼠标位置为基准定位并跟随移动，保留方向设置、显示延迟、边缘翻转和视口约束，支持动态切换。
+- Tooltip 内部鼠标处理与传入的 `onMouseEnter`、`onMouseLeave`、`onMouseMove` 回调组合执行。
 
 ## [0.1.0-alpha.1] - 2026-10-13
 

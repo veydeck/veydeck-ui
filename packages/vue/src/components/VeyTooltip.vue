@@ -19,6 +19,8 @@ const props = withDefaults(
     position?: TooltipPosition;
     /** 显示延迟 (ms) */
     delay?: number;
+    /** 是否跟随鼠标位置 */
+    followCursor?: boolean;
     /** 是否禁用 */
     disabled?: boolean;
   }>(),
@@ -27,6 +29,7 @@ const props = withDefaults(
     position: "top",
     delay: 200,
     disabled: false,
+    followCursor: false,
   },
 );
 
@@ -38,13 +41,24 @@ const tooltipId = `vl-tooltip-${Math.random().toString(36).slice(2)}`;
 const actualPosition = ref<TooltipPosition>(props.position);
 
 let timer: number | undefined = undefined;
+let cursor: { x: number; y: number } | null = null;
 
 // --- 定位逻辑 ---
 
 const calculatePosition = () => {
   if (!triggerRef.value || !tooltipRef.value) return;
 
-  const triggerRect = triggerRef.value.getBoundingClientRect();
+  const triggerRect =
+    props.followCursor && cursor
+      ? {
+          top: cursor.y,
+          bottom: cursor.y,
+          left: cursor.x,
+          right: cursor.x,
+          width: 0,
+          height: 0,
+        }
+      : triggerRef.value.getBoundingClientRect();
   const tooltipRect = tooltipRef.value.getBoundingClientRect();
 
   const viewportWidth = window.innerWidth;
@@ -128,7 +142,13 @@ const calculatePosition = () => {
 
 // --- 悬浮控制逻辑 ---
 
-const handleMouseEnter = () => {
+const handleMouseMove = (event: MouseEvent) => {
+  cursor = { x: event.clientX, y: event.clientY };
+  if (props.followCursor && isVisible.value) calculatePosition();
+};
+
+const handleMouseEnter = (event: MouseEvent) => {
+  cursor = { x: event.clientX, y: event.clientY };
   if (props.disabled) return;
   clearTimeout(timer);
   timer = setTimeout(() => {
@@ -138,6 +158,14 @@ const handleMouseEnter = () => {
     });
   }, props.delay) as unknown as number;
 };
+
+watch(
+  () => [props.followCursor, props.position, props.text],
+  () => {
+    if (isVisible.value) calculatePosition();
+  },
+  { flush: "post" },
+);
 
 watch(
   () => props.disabled,
@@ -173,6 +201,7 @@ const vGlass = useGlass(() => props.glass, "surface");
     :aria-describedby="isVisible && text && !disabled ? tooltipId : undefined"
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
+    @mousemove="handleMouseMove"
   >
     <slot></slot>
     <teleport to="body">

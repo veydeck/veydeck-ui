@@ -26,8 +26,20 @@
 ## Tooltip
 
 - **适用**：补充简短说明；关键说明和交互内容不放入 Tooltip。
-- **API**：`text`、`position`、`delay`、`disabled`，两端行为一致。
-- **语义**：浮层 `role="tooltip"`，触发器通过 `aria-describedby` 关联；自动翻转并跟随滚动。
+- **API**：`text`、`position`、`delay`、`disabled`、`followCursor`，两端行为一致。
+- **语义**：浮层 `role="tooltip"`，触发器通过 `aria-describedby` 关联；自动翻转并跟随滚动。`followCursor` 默认为 `false`；启用后以鼠标位置为基准，按 `position` 指定方向跟随移动，保留显示延迟、边缘翻转和视口约束。
+
+```vue
+<VeyTooltip text="跟随鼠标的提示" follow-cursor>
+  <VeyButton>移动鼠标查看</VeyButton>
+</VeyTooltip>
+```
+
+```tsx
+<VeyTooltip text="跟随鼠标的提示" followCursor>
+  <VeyButton>移动鼠标查看</VeyButton>
+</VeyTooltip>
+```
 
 ## Icon
 

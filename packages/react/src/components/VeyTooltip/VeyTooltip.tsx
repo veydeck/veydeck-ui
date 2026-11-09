@@ -13,6 +13,8 @@ export interface VeyTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   position?: TooltipPosition;
   /** 显示延迟 (ms) */
   delay?: number;
+  /** 是否跟随鼠标位置 */
+  followCursor?: boolean;
   /** 是否禁用 */
   disabled?: boolean;
   /** 子元素 */
@@ -27,8 +29,12 @@ export const VeyTooltip: React.FC<VeyTooltipProps> = ({
   delay = 200,
   children,
   disabled = false,
+  followCursor = false,
   glass,
   className = "",
+  onMouseEnter,
+  onMouseLeave,
+  onMouseMove,
   ...rest
 }) => {
   const tooltipId = useId();
@@ -42,6 +48,8 @@ export const VeyTooltip: React.FC<VeyTooltipProps> = ({
   const tooltipRef = useRef<HTMLDivElement | null>(null);
   const tooltipGlassRef = useGlass<HTMLDivElement>(glass, "surface");
 
+  const cursorRef = useRef<{ x: number; y: number } | null>(null);
+
   const timerRef = useRef<any>(null);
   const animationTimerRef = useRef<any>(null);
 
@@ -49,7 +57,18 @@ export const VeyTooltip: React.FC<VeyTooltipProps> = ({
     (node: HTMLDivElement) => {
       if (!triggerRef.current || !node) return;
 
-      const triggerRect = triggerRef.current.getBoundingClientRect();
+      const cursor = cursorRef.current;
+      const triggerRect =
+        followCursor && cursor
+          ? {
+              top: cursor.y,
+              bottom: cursor.y,
+              left: cursor.x,
+              right: cursor.x,
+              width: 0,
+              height: 0,
+            }
+          : triggerRef.current.getBoundingClientRect();
       const tooltipRect = node.getBoundingClientRect();
 
       const viewportWidth = window.innerWidth;
@@ -131,7 +150,7 @@ export const VeyTooltip: React.FC<VeyTooltipProps> = ({
         left: `${left}px`,
       });
     },
-    [position],
+    [position, followCursor],
   );
 
   const setTooltipRef = useCallback(
@@ -145,13 +164,24 @@ export const VeyTooltip: React.FC<VeyTooltipProps> = ({
     [calculatePosition, tooltipGlassRef],
   );
 
-  const handleMouseEnter = () => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    cursorRef.current = { x: event.clientX, y: event.clientY };
+    if (followCursor && tooltipRef.current && !disabled) {
+      calculatePosition(tooltipRef.current);
+    }
+    onMouseMove?.(event);
+  };
+
+  const handleMouseEnter = (event: React.MouseEvent<HTMLDivElement>) => {
+    cursorRef.current = { x: event.clientX, y: event.clientY };
+    onMouseEnter?.(event);
     if (disabled) return;
     if (timerRef.current) window.clearTimeout(timerRef.current);
     if (animationTimerRef.current)
       window.clearTimeout(animationTimerRef.current);
 
     if (isRendered) {
+      if (tooltipRef.current) calculatePosition(tooltipRef.current);
       setIsVisible(true);
     } else {
       timerRef.current = window.setTimeout(() => {
@@ -164,7 +194,8 @@ export const VeyTooltip: React.FC<VeyTooltipProps> = ({
     }
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (event: React.MouseEvent<HTMLDivElement>) => {
+    onMouseLeave?.(event);
     if (timerRef.current) window.clearTimeout(timerRef.current);
     if (animationTimerRef.current)
       window.clearTimeout(animationTimerRef.current);
@@ -209,6 +240,7 @@ export const VeyTooltip: React.FC<VeyTooltipProps> = ({
       aria-describedby={isVisible && text ? tooltipId : undefined}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
       {...rest}
     >
       {children}
